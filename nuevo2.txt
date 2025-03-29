@@ -1,0 +1,66 @@
+parte del codigo para la pagina de fredy reservar por que afecta todas las imagenes de la pagina 
+
+
+
+img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    object-fit: cover; /* Recorta la imagen si es necesario para ajustarla bien */
+    max-width: 200px; /* Tamaño máximo para que todas sean iguales */
+    max-height: 200px; /* Altura máxima */
+    display: block; /* Evita que haya espacios extra debajo de la imagen */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vamos a hacer prueba con pagina about 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - Ilustrador</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="./recursos/myairbridge-BCTRZmbL9RO/freddo-logo.png" alt="Logo freddo">
+        <nav>
+            <ul style="text-align: center;">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./digital.html">Digital</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="about-section">
+            <h2 style="padding: 2rem; font-size: 40px;">Sobre mí</h2>
+
+            <div class="about-bannerprincipal">
+                <img src="./recursos/myairbridge-BCTRZmbL9RO/bannerabout" alt="Imagen del ilustrador" class="about-bannerprincipal">
+                
+            <div class="about-content">
+                <img src="./recursos/myairbridge-BCTRZmbL9RO/LOGO-2.png" alt="Imagen del ilustrador" class="about-image">
+                <p>Considero que la ilustración es mi mayor fortaleza, aunque también me desenvuelvo con habilidad en otros campos del diseño grafico.<br><br><br>
+
+ 
+
+                    Mi estilo está marcado por una mirada a lo cotidiano desde el humor acido con colores vibrantes, personajes caricaturescos y surrealistas, Me interesa explorar lo oscuro y lo absurdo de la condición humana con humor y personajes fuera de lo común desde el estilo clásico de los cartoons.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <button id="ver-mas" class="eye-button">👁 Ver más</button>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
