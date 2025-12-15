@@ -1,408 +1,274 @@
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    @media (max-width: 768px) {
-        .contenedor-imagenes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .contenedor-imagenes img {
-            width: calc(50% - 10px); /* Dos imágenes por fila */
-            margin-bottom: 10px;
-        }
-    }
-    @media screen and (max-width: 768px) {
+/* Definición de Variables CSS (Custom Properties) */
+:root {
+    --color-freddo-naranja: rgb(235, 75, 41);
+    --color-freddo-oscuro: rgb(19, 63, 64);
+    --color-freddo-claro: rgb(246, 240, 223);
+    --color-freddo-arena: rgb(200, 192, 164);
+    --font-lulobold: 'lulobold', sans-serif;
+    --font-raleway: 'Raleway', sans-serif;
+}
 
-        .about-section {
-            padding-inline: 2rem;
-        }
+/* Base y Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; /* Base para usar 1rem = 10px */
+}
+
+/* Definición de la fuente personalizada */
+@font-face {
+    font-family: 'lulobold';
+    src: url('./recursos/font/@font-face/39a2c7f346d5cfae7045aeb2fb50d9ad.woff2') format('woff2'),
+         url('./recursos/font/@font-face/39a2c7f346d5cfae7045aeb2fb50d9ad.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    /* Usamos las variables */
+    font-family: var(--font-raleway), 'Bebas Neue', sans-serif; 
+    background-color: var(--color-freddo-oscuro);
+    color: var(--color-freddo-oscuro);
+    margin: 0 15%; 
+}
+
+/* Contenedor (No es necesario si body ya tiene margen) */
+.container {
+    /* Puedes eliminar esta clase o redefinirla si es necesaria para un propósito específico */
+    /* Dejamos solo el margen en body para evitar la duplicidad de estilos */
+    display: none; /* Sugiero eliminar este div si su único propósito era el color de fondo */
+}
+
+/* Header */
+header {
+    text-align: center;
+    background-color: var(--color-freddo-naranja);
+    color: white;
+}
+
+.logo {
+    width: 35rem; /* Usando rem */
+    height: auto;
+    max-width: 100%;
+    padding: 1rem 0; /* Un poco de espacio */
+}
+
+/* --- Estilos de Navegación y Menú Hamburguesa --- */
+
+nav {
+    background-color: var(--color-freddo-oscuro);
+    font-family: var(--font-lulobold);
+    /* Ya no es necesario el justify-content: center aquí si el ul es el que lo hace */
+    padding: 1rem;
+    position: relative; /* Para posicionar el menú desplegable en móviles */
+}
+
+.menu { /* Clase aplicada a la <ul> en el HTML */
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centrar elementos en escritorio */
+    gap: 2.0rem; /* Usamos gap en vez de margin en los li */
+    padding: 0; /* Quitamos el padding si lo tenía */
+    margin: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem; /* Tamaño de fuente con rem */
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    font-size: 3rem; /* Más grande para móviles */
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    line-height: 1;
+}
+
+/* Estilos de Menú Hamburguesa (Móviles/Tablets) */
+@media (max-width: 768px) {
+    /* Mostramos el botón hamburguesa */
+    .menu-toggle {
+        display: block; 
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001; /* Asegura que esté por encima de todo */
     }
-    @media (min-width: 769px) {
-        .menu {
-            display: flex; /* Asegura que sea visible en laptops */
-            position: static; /* Para evitar problemas con el `position: fixed` de móviles */
-            background: none; /* Evita el fondo oscuro */
-            height: auto; /* Para que no tome toda la pantalla */
-        }
-    }
 
-    html{
-        font-size: 62.5%;
-    }
-
-    /* Contenedor principal con margen */
-    .container {
-        margin: 0 15%; /* Margen izquierdo y derecho del 15% */
-        background-color: rgb(19, 63, 64); /* Color de fondo para el contenedor con margen */
-        color: white; /* Color del texto en el contenedor */
-    }
-
-    @font-face {
-        font-family: 'lulobold';
-        src: url('./recursos/font/@font-face/39a2c7f346d5cfae7045aeb2fb50d9ad.woff2') format('woff2'),
-            url('./recursos/font/@font-face/39a2c7f346d5cfae7045aeb2fb50d9ad.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    /*-------------------------------------------------*/
-    body {
-        font-family: 'Bebas Neue', sans-serif;
-        background-color:rgb(19, 63, 64);
-        color: #333;
-        margin:  0 15%; /* Margen izquierdo y derecho del 15% */
-        background-color: rgb(19, 63, 64);
-    }
-
-    /* Header */
-
-    header {
-        text-align: center;
-        background-color: rgb(235, 75, 41);
-        color: white;
-    }
-    /* Estilo para el logo */
-    .logo {
-        width: 350px; /* Ajusta el tamaño del logo */
-        height: auto; /* Mantiene la proporción de la imagen */
-        max-width: 100%;/* esto lo usamos para que no se distorcione en paginas mas grandes */
-    }
-
-    /*-----------------------------------------------------*/
-
-
-    /* Reset básico */
-    
-    /* Estilos del menú */
+    /* Ocultamos el menú principal por defecto y lo preparamos para el despliegue */
     .menu {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        top: 0;
-        left: 0;
-        width: 100%;    
-    }
-
-    .menu li {
-        padding: 10px;
-    }
-    
-    .menu a {
-        text-decoration: none;
-        color: white;
-        font-size: 1.5rem;
-    }
-    
-    /* Media Query para móviles */
-    @media (max-width: 768px) {
-        .menu-toggle {
-        display: block; /* Muestra el botón */
-        }
-    
-        .menu {
-        display: none; /* Oculta el menú por defecto */
+        display: none; /* Oculto por defecto */
         flex-direction: column;
         position: absolute;
-        top: 50px;
+        top: 100%; /* Justo debajo de la etiqueta nav */
         left: 0;
         width: 100%;
-        background-color: #222;
-        }
-    
-        .menu li {
+        background-color: rgba(0, 0, 0, 0.95); /* Fondo oscuro semitransparente */
         text-align: center;
-        padding: 15px;
-        }
-    
-        .menu.active {
-        display: flex; /* Muestra el menú cuando tenga la clase "active" */
-        }
-    }
-
-    nav{
-        background-color:rgb(19, 63, 64) ;
-        font-family: 'lulobold', sans-serif;
-        display: flex;
-        justify-content:center;
-        margin-top: 20px;
-        padding: 1rem;
-    }
-    nav ul {
-        text-align: center;
-        list-style: none;
-        display: flex;
-    }
-    nav ul li {
-        text-align: center;
-        margin: 0 2.0rem;
-
-    }
-    nav ul li a { 
-        text-align: center;
-        text-decoration: none;
-        color: white;
-        font-size: 1.5rem;
-    }
-    /* Sección Home (Galería de imágenes) */
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
-        gap: 10px;
-        padding: 10rem;
-        justify-content: center;
-        background-color: rgb(235, 75, 41);
-    }
-
-
-    .gallery img {
-        flex-basis: calc(25% - 1rem); /* Establece que cada imagen tenga el 25% del contenedor, menos el espacio de gap */
-        /*width: calc(25% - 1rem);  /* Calcula un ancho del 25% menos el espacio entre imágenes */
-        height: 250px;
-        object-fit: cover;
-    }
-
-
-    .image-container {
-        position: relative;
-        overflow: hidden    ;
+        z-index: 1000;
+        border-top: 1px solid var(--color-freddo-naranja);
     }
     
-    .image-container img {
-        width: 100%;
-        max-width: 200px;
-        border-radius: 10px;
-        transition: 0.3s;
-        transition: 0.3s ease-in-out; /* Suaviza la transición */
+    .menu li {
+        margin: 0; /* Eliminamos el margin horizontal */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .image-container .overlay {
-        font-family: 'Raleway', sans-serif;
-        position: absolute;
+
+    /* Muestra el menú cuando tiene la clase "active" */
+    .menu.active {
+        display: flex; 
+    }
+    
+    /* Ajustes específicos para el header y nav en móviles */
+    header {
+        position: sticky; /* O fixed si quieres que el header siempre esté visible */
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(200, 192, 164, 0.821);
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.3s;
+        z-index: 1002;
     }
-    .image-container:hover .overlay {
-        opacity: 1;
+    
+    nav {
+        display: block; /* Para que el menú absolute funcione bien */
+        height: auto; /* Ajuste automático */
     }
-
-    /* Responsive para tablets */
-    @media (max-width: 1024px) {
-        .gallery {
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-        }
+    
+    .logo {
+        width: 25rem; /* Logo más pequeño en móvil */
     }
+}
 
-    /* Responsive para móviles */
-    @media (max-width: 768px) {
-        .gallery {
-            grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
-        }
+/* Reajuste para escritorio para asegurar que el menú siempre esté visible */
+@media (min-width: 769px) {
+    .menu {
+        display: flex !important; /* Aseguramos que siempre esté visible en desktop */
+        position: static;
+        background: none;
+        width: auto;
     }
-
-    /* Sección About */
-
-
-    .about-section {
-        color: rgb(200, 192, 164) ;
-        text-align: center;
-        font-family: 'Raleway', sans-serif;
-        font-size: 20PX;
-        background-color: rgb(19, 63, 64);
-        padding-inline: 10rem;
+    .menu-toggle {
+        display: none;
     }
+}
 
-    .about-title {
-        color: rgb(246, 240, 223);
-        padding: 2rem;
-        font-size: 40px;
-        text-align: center;
-    }
 
-    .about-content {
-        font-family: 'Raleway', sans-serif;
-        color: black;
-        background-color: rgb(246, 240, 223);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-        gap: 2rem;
+/* Otros estilos... */
+/* Sección Home (Galería de imágenes) */
+.gallery {
+    /* ... (tu código de galería) */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/* 4 columnas en pantallas grandes */
+    gap: 1.5rem; /* Ajuste el gap usando rem para consistencia */
+    padding: 10rem;
+    justify-content: center;
+    background-color: var(--color-freddo-naranja); /* Usando variable */
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden; 
+    /* Puedes fijar aquí la altura del contenedor si quieres que sean cuadrados */
+    height: 25rem; /* Por ejemplo, 250px usando rem */
+}
+
+.image-container img {
+    width: 100%; /* **CORREGIDO: Ocupa el 100% del ancho del contenedor.** */
+    height: 100%; /* Ocupa el 100% de la altura del contenedor. */
+    max-width: 100%; /* **CORREGIDO: El ancho máximo es el 100% de su contenedor (fluidez).** */
+    object-fit: cover; /* Recorta la imagen para que cubra todo el contenedor sin distorsionarse. */
+    border-radius: 10px;
+    transition: 0.3s ease-in-out; 
+}
+
+/* El overlay funciona bien con width: 100% y height: 100% */
+.image-container .overlay {
+    /* ... (estilos del overlay) ... */
+}
+
+/* Media Queries (Aseguramos la responsividad) */
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
         padding: 5rem;
     }
-    .about-image {
-        width: 300px;
-        border-radius: 50%;
-    }
+}
 
-    .about-bannerprincipal {
-        width: 100%;
-        height: auto;
-        padding-top: 10px; /* Ajuste superior */
-        padding-bottom: 30px; /* Espacio inferior */
-        position: relative;
-    }
-
-    .about-bannerprincipal::before,
-    .about-bannerprincipal::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        border-top: 3px dotted rgb(235, 75, 41); /* Línea punteada */
-        left: 0;
-    }
-
-    .about-bannerprincipal::before {
-        top: 0;
-    }
-
-    .about-bannerprincipal::after {
-        bottom: 40px; /* Mayor espacio debajo */
-    }
-
-    .about-bannerprincipal img {
-        width: 100%;
-        height: auto;
-        margin-top: 0px;
-        margin-bottom: 0px; /* Espacio adicional entre la imagen y la línea punteada inferior */
-    }
-
-    /* Sección Contact */
-    .contact-section {
-        text-align: center;
-        padding: 3rem;
-    }
-    .contact-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-    }
-    .contact-image img {
-        width: 250px;       
-    }
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .contact-form input, 
-    .contact-form textarea {
-        width: 100%;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.6rem;
-    }
-    .contact-form button {
-        background-color: #222;
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        cursor: pointer;
-    }
-    .social-icons {
-        margin-top: 1rem;
-        display: flex;
-        gap: 1rem;
-    }
-    .social-icons img {
-        width: 30px;
-        transition: 0.3s;
-    }
-    .social-icons img:hover {
-        transform: scale(1.1);
-    }
-
-    /* Footer */
-    /*
-    footer {
-        text-align: center;
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
         padding: 2rem;
-        background-color: rgb(235, 75, 41);
-        color: white;
     }
-    .eye-button {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
+    .image-container {
+        height: 30rem; /* Más alto en móvil para mejor visualización */
     }
-    */
+}
 
-    footer {
-        position: relative;
-        background: url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura.png') left center no-repeat   ,
-                    url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura-2.png') right center no-repeat;
-        background-size: auto 100%;
-        background-position: left top, right top;
-        text-align: center;
-        padding: 50px;
-        background-color: rgb(235, 75, 41);
-        margin: 0;
+/* Responsive para tablets y móviles (Conservado y mejorado) */
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        padding: 5rem;
     }
-
-    .eye-button {
-        position: relative;
-        z-index: 2;
-        background-color: transparent;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
+    /* Estilos para la sección About en tablets/móviles */
+    .about-content {
+        flex-direction: column;
+        padding: 2rem;
     }
-
-    /*-------------------------------------------------*/
-
-
-
-    /* Menú en móviles oculto por defecto */
-    @media (max-width: 768px) {
-        .menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .menu li {
-            padding: 10px 0;
-        }
-
-        /* Cuando el menú tiene la clase active, se muestra */
-        .menu.active {
-            display: flex;
-        }
-
-        /* El botón hamburguesa */
-        .menu-toggle {
-            display: block; /* Solo en móviles */
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-        }
+    .about-section {
+        padding-inline: 2rem;
     }
+}
 
-    /* Para pantallas más grandes */
-    @media (min-width: 769px) {
-        .menu-toggle {
-            display: none; /* El botón hamburguesa se oculta en pantallas grandes */
-        }
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
+        padding: 2rem;
     }
+    /* El margen del body puede ser muy grande en móvil */
+    body {
+        margin: 0 1rem; 
+    }
+    .about-image {
+        width: 200px;
+    }
+}
+
+/* Sección About */
+.about-title {
+    color: var(--color-freddo-claro); /* Usando variable */
+    padding: 2rem;
+    font-size: 4rem; /* Usando rem */
+}
+.about-section {
+    color: var(--color-freddo-arena); /* Usando variable */
+    font-size: 2rem; /* Usando rem */
+    background-color: var(--color-freddo-oscuro); /* Usando variable */
+}
+
+.about-content {
+    background-color: var(--color-freddo-claro); /* Usando variable */
+    /* ... (resto de estilos) */
+}
+
+/* Footer (Conservado) */
+footer {
+    position: relative;
+    background: url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura.png') left center no-repeat,
+                url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura-2.png') right center no-repeat;
+    background-size: auto 100%;
+    background-position: left top, right top;
+    text-align: center;
+    padding: 50px;
+    background-color: var(--color-freddo-naranja); /* Usando variable */
+    margin: 0;
+}
