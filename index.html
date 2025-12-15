@@ -9,17 +9,24 @@
 </head>
 <body>
     <div class="container"></div>
+    
     <header>
-        <img class="logo" src="./recursos/myairbridge-BCTRZmbL9RO/freddo-logo.png" alt="Logo freddo">
-        <nav>
-            <ul style="text-align: center;">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./digital.html">Digital</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <img class="logo" src="./recursos/myairbridge-BCTRZmbL9RO/freddo-logo.png" alt="Logo freddo">
+    <nav>
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        
+        <ul id="menu" class="menu"> 
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./digital.html">Digital</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </header>
+
+    
+<script src="./script.js"></script> </body>
+</html>
     
     <main>
         <section id="home" class="gallery">
@@ -96,6 +103,7 @@
         <button id="ver-mas" class="eye-button" onclick="window.open('https://url-a-tu-página.com', '_blank')">👁 Ver más</button>
     </footer>
     
-    <script src="script.js"></script>
+    <script src="./menu.js"></script>
 </body>
 </html>
+
