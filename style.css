@@ -4,9 +4,12 @@
     --color-freddo-oscuro: rgb(19, 63, 64);
     --color-freddo-claro: rgb(246, 240, 223);
     --color-freddo-arena: rgb(200, 192, 164);
+    --color-ojo-iris: rgb(136, 185, 205);
+    --color-formulario: rgb(246, 240, 223);
     --font-lulobold: 'lulobold', sans-serif;
     --font-raleway: 'Raleway', sans-serif;
-    --color-ojo-iris: rgb(136, 185, 205); 
+
+     
 }
 
 /* Base y Reset */
@@ -180,6 +183,7 @@ nav {
     overflow: hidden; 
     /* Puedes fijar aquí la altura del contenedor si quieres que sean cuadrados */
     height: 25rem; /* Por ejemplo, 250px usando rem */
+    
 }
 
 .image-container img {
@@ -231,6 +235,12 @@ nav {
 }
 
 @media (max-width: 768px) {
+    .about-content{
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
     .gallery {
         grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
         padding: 2rem;
@@ -240,7 +250,18 @@ nav {
         margin: 0 1rem; 
     }
     .about-image {
-        width: 200px;
+        width: 150px;
+    }
+    .digital-gallery{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .digital-gallery .wide{
+        grid-column: span 2;
+    }
+    .digital-gallery .tall{
+        grid-row: span 1;
+        grid-column: span 2;
     }
 }
 
@@ -249,6 +270,7 @@ nav {
     color: var(--color-freddo-claro); /* Usando variable */
     padding: 2rem;
     font-size: 4rem; /* Usando rem */
+    text-align: center;
 }
 .about-section {
     color: var(--color-freddo-arena); /* Usando variable */
@@ -258,13 +280,291 @@ nav {
 
 .about-content {
     background-color: var(--color-freddo-claro); /* Usando variable */
-    /* ... (resto de estilos) */
+    padding: 4rem; /* Añade un buen padding interno */
+    margin: 4rem 0; /* Margen para separarlo de otros elementos */
+    border-radius: 10px; /* Opcional: para un borde suave */
+    display: flex;
+    align-items: center;
+    gap: 3rem;
 }
 
+.about-image{
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-shrink: 0; /* Evita que la imagen se reduzca demasiado */
+    border-radius: 50%; /* Opcional: si quieres que sea circular */
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+.about-content p {
+    height: auto;
+    flex-grow: 1;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    height: auto;
+    color: #000;
+}
+.about-section .image-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0; /* agregamos padin para dar el espacio arriba y abajo*/
+    
+    border-top: 3px dotted var(--color-freddo-naranja);
+    border-bottom: 3px dotted var(--color-freddo-naranja);
+}
+
+
+/* aqui se declara la pagina de digital */
+
+/* --- ESTILOS PARA LA GALERÍA DIGITAL (digital.html) --- */
+
+.digital-gallery-section {
+    padding: 5rem 0;
+    background-color: var(--color-freddo-oscuro);
+    color: var(--color-freddo-claro);
+    /* Puedes centrar el título aquí si lo deseas */
+    text-align: center; 
+}
+
+.digital-gallery {
+    /* 1. CLAVE: Habilita CSS Grid */
+    display: grid;
+    
+    /* 2. Define 3 columnas de igual ancho (1fr) */
+    grid-template-columns: repeat(3, 1fr); 
+    
+    /* 3. Espacio entre las imágenes */
+    gap: 1.5rem; 
+    
+    /* 4. Limita el ancho del contenedor de la galería para que no sea demasiado grande */
+    max-width: 1200px; 
+    margin: 0 auto; /* Centra la galería */
+}
+
+/* Estilos básicos para las imágenes dentro de la galería */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para llenar el espacio sin distorsión */
+    display: block;
+    border-radius: 5px;
+}
+
+/* --- ESTILOS DE POSICIONAMIENTO ESPECIALES --- */
+
+/* 1. Segunda Fila: El elemento de la derecha abarca 2 columnas */
+/* La fila de tres elementos ocupa las columnas 1, 2, 3 por defecto.
+   La segunda fila empieza con un elemento en columna 1.
+   El siguiente elemento debe empezar en columna 2 y abarcar 2 columnas. */
+
+/* Estilo para el elemento ancho que abarca 2 columnas */
+.digital-gallery .wide {
+    /* CLAVE: Comienza en la línea 2 y termina en la línea 4 (abarca columnas 2 y 3) */
+    grid-column: 2 / span 2; 
+}
+
+digital-gallery .final-banner{
+    grid-column: span 3;
+    grid-row: span 3;
+}
+.digital-gallery .final-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+------------------------------------------------------------------------------------
+
+/* --- ESTILOS PARA LA PÁGINA DE CONTACTO (contact.html) --- */
+
+.contact-section {
+    background-color: var(--color-freddo-oscuro); /* El color verde oscuro de fondo */
+    min-height: 80vh; 
+    padding: 6rem 2rem;
+    color: var(--color-freddo-arena);
+}
+
+.contact-container {
+    display: grid;
+    /* Dos columnas: 40% para el texto, 60% para el formulario */
+    grid-template-columns: 40% 60%; 
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 5rem;
+    align-items: start; /* Alinea los elementos en la parte superior */
+}
+
+/* --- Columna Izquierda (Texto y Logo) --- */
+.contact-info {
+    /* Alinea el texto a la derecha junto al formulario */
+    text-align: right; 
+    display: flex; /* Usamos flex para ordenar el logo y el texto verticalmente */
+    flex-direction: column;
+    align-items: flex-end; /* Alinea los elementos a la derecha */
+    padding-top: 5rem; 
+}
+
+.contact-headline {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-weight: bold;
+    color: var(--color-freddo-claro);
+    max-width: 400px; /* Limita el ancho del texto para que no sea muy largo */
+}
+
+.contact-headline .highlight {
+    color: var(--color-freddo-naranja); /* La palabra MAGIA en color vibrante */
+    font-weight: 900;
+}
+
+/* Decoración del Logo (Círculo Naranja y Puntos) */
+.logo-decoration {
+    width: 40rem; /* Tamaño del círculo naranja */
+    height: 20rem;
+    /*background-color: var(--color-freddo-naranja);*/   
+    border-radius: 50%;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* --- Simulación de los Puntos (::before) --- */
+    /* Este pseudo-elemento crea el efecto de puntos punteados alrededor */
+}
+
+.logo-decoration::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    width: calc(100% + 4rem);
+    height: calc(100% + 4rem);
+    border-radius: 50%;
+    /*border: 5px dotted rgba(255, 255, 255, 0.4); /* Puntos blancos/claros */
+    pointer-events: none; /* Asegura que no interfiera con clics */
+}
+
+.logo-decoration img {
+    /* El icono dentro del círculo */
+    width: 60%;
+    height: auto;
+    /*filter: invert(100%); /* Si tu icono es oscuro, esto lo hace blanco */
+}
+
+
+/* --- Columna Derecha (Formulario) --- */
+.contact-form-wrapper {
+    background-color: var(--color-formulario); /* Fondo crema/beige */
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #000; /* Texto negro */
+}
+
+.contact-form h3 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo de los Inputs y Textarea (Siguiendo el diseño con línea inferior) */
+.contact-form input:not([type="submit"]), 
+.contact-form textarea {
+    background-color: transparent; 
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: #000;
+    width: 100%;
+    border-radius: 0;
+    
+    /* Línea inferior roja, como en el diseño */
+    border-bottom: 2px solid var(--color-freddo-naranja); 
+}
+
+.contact-form textarea {
+    /* Para el mensaje, el diseño tiene un borde completo */
+    border: 2px solid var(--color-freddo-naranja);
+    padding: 1rem;
+    border-radius: 5px;
+    resize: vertical; 
+}
+
+/* Botón Submit */
+.submit-button {
+    background-color: #000; 
+    color: var(--color-freddo-arena); 
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background-color 0.3s;
+}
+
+/* --- Iconos Sociales --- */
+.social-icons {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.social-icons img {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem;
+}
+
+/* --- Ajuste Responsivo --- */
+@media (max-width: 900px) {
+    .contact-container {
+        /* En móvil, apilamos las columnas */
+        grid-template-columns: 1fr; 
+        gap: 3rem;
+    }
+
+    .contact-info {
+        text-align: center; 
+        align-items: center; /* Centra los elementos de la columna */
+        order: 2; /* Pone la info debajo del formulario */
+        padding-top: 0;
+    }
+
+    .contact-form-wrapper {
+        order: 1; /* El formulario va primero */
+    }
+    
+    .logo-decoration {
+        margin: 0 auto 3rem; /* Centra la decoración en móvil */
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 /* Footer (Conservado) */
 footer {
     position: relative;
-    background: url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura.png') left center no-repeat,
+    background: url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura.png') left center  no-repeat,
                 url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura-2.png') right center no-repeat;
     background-size: auto 100%;
     background-position: left top, right top;
@@ -380,4 +680,85 @@ footer {
     /* **CORREGIDO: POSICIÓN TRANSVERSAL INFERIOR** */
     bottom: 20%;
     right: 20%;
+}
+
+-----------------------------------------------------
+
+
+/* style.css - (AÑADIR/MODIFICAR ESTO EN TUS MEDIA QUERIES EXISTENTES) */
+
+/* General para Tablets y Móviles (ej. hasta 768px o 1024px) */
+@media (max-width: 1024px) {
+    /* Ajustes para el Footer */
+    footer {
+        padding: 6rem 0; /* Menos padding en pantallas más pequeñas */
+        /* Las background-size: 50% auto ya las hacen responsivas,
+           pero podemos ajustar la posición si es necesario */
+        background-position: left top, right top; /* Aseguramos que se mantengan pegadas arriba */
+        background-size: 50% auto, 50% auto; /* Siempre ocupando 50% del ancho */
+            }
+
+    /* Ajustes para el Ojo */
+    .eye-container {
+        width: 7rem; /* Ojo un poco más pequeño en tablets */
+        height: 7rem;
+    }
+    .iris {
+        width: 5.5rem; /* Iris más pequeño */
+        height: 5.5rem;
+    }
+    .pupil {
+        width: 2.2rem; /* Pupila más pequeña */
+        height: 2.2rem;
+    }
+    .pupil::before {
+        width: 0.7rem; /* Destellos más pequeños */
+        height: 0.7rem;
+    }
+    .pupil::after {
+        width: 0.4rem;
+        height: 0.4rem;
+    }
+    
+    .footer-content {
+        gap: 2.5rem; /* Menos espacio entre el ojo y el botón */
+    }
+    }
+
+/* Específico para Móviles (ej. hasta 768px) */
+@media (max-width: 768px) {
+    /* Ajustes para el Footer */
+    footer {
+        padding: 2rem 0; /* Aún menos padding en móviles */
+        /* Si las imágenes se ven muy estiradas en móvil, podemos hacer que el 
+           background-size sea más pequeño o simplemente auto */
+        background-size: 40% auto, 40% auto; /* Pueden ocupar un poco más del 50% si es necesario */
+                                            /* O usar background-size: auto 100%; para que se ajusten por altura */
+    }
+    
+    /* Ajustes para el Ojo */
+    .eye-container {
+        width: 6rem; /* Ojo aún más pequeño en móviles */
+        height: 6rem;
+    }
+    .iris {
+        width: 4.5rem; 
+        height: 4.5rem;
+    }
+    .pupil {
+        width: 1.8rem; 
+        height: 1.8rem;
+    }
+    .pupil::before {
+        width: 0.6rem; 
+        height: 0.6rem;
+    }
+    .pupil::after {
+        width: 0.3rem;
+        height: 0.3rem;
+    }
+    
+    .footer-content {
+        gap: 2rem; /* Espacio aún más reducido */
+    }
 }

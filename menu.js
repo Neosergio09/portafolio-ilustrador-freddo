@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Añadimos el listener de forma no intrusiva (sin usar onclick en el HTML)
         verMasButton.addEventListener('click', function() {
             // Reemplaza 'URL_A_TU_PAGINA' con la URL real
-            window.open('URL_A_TU_PAGINA', '_blank'); 
+            window.open('https://www.instagram.com/freddoilustra/', '_blank'); 
         });
     }
 
@@ -103,6 +103,4 @@ document.addEventListener("DOMContentLoaded", function () {
             pupil.style.transform = 'translate(0, 0)';
         });
     }
-    
-    // ... (resto de tu JS: menú, botón ver más, etc.) ...
 });

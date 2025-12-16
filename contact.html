@@ -20,37 +20,61 @@
     </ul>
     </nav>
     </header>
-        <main>
+    
+    <main>
     <section class="contact-section">
-        <p class="contact-text">Si tienes una idea en mente, un proyecto especial o simplemente buscas algo único, no dudes en escribirme. ¡Hagamos magia juntos!</p>
-            <div class="contact-container">
-                <div class="contact-image">
+        
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                
+                <div class="logo-decoration">
                     <img src="./recursos/myairbridge-BCTRZmbL9RO/icono-rostro.png" alt="Icono de contacto">
                 </div>
-                <div class="contact-form">
-                    <h2>Contact Us</h2>
-                    <form>
-                        <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <label for="email">Telefono</label>
-                        <input type="tel" name="telefono" placeholder="Teléfono" required>
-                        <label for="email">Mensaje</label>
-                        <textarea name="mensaje" placeholder="Write message" required></textarea>
-                        <button type="submit">Enviar</button>
-                    </form>
-                    <div class="social-icons">
-                        <a href="#"><img src="icon-facebook.png" alt="Facebook"></a>
-                        <a href="#"><img src="icon-instagram.png" alt="Instagram"></a>
-                        <a href="#"><img src="icon-twitter.png" alt="Twitter"></a>
+                
+                <p class="contact-headline">
+                    SI TIENES UNA IDEA EN MENTE, UN PROYECTO ESPECIAL O SIMPLEMENTE BUSCAS ALGO ÚNICO, NO DUDES EN ESCRIBIRME. 
+                    <span class="highlight">¡HAGAMOS MAGIA JUNTOS!</span>
+                </p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="contact-form">
+                    <h3>Contact us</h3>
+                    
+                    <div class="form-group full-width">
+                        <label for="email">EMAIL *</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
+
+                    <div class="form-group full-width">
+                        <label for="telefono">TELÉFONO</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="mensaje">WRITE A MESSAGE</label>
+                        <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+
+                <div class="social-icons">
+                    <a href="#"><img src="./recursos/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="./recursos/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="./recursos/tiktok.png" alt="TikTok"></a>
+                    <a href="#"><img src="./recursos/telegram.png" alt="Telegram"></a>
+                    <a href="#"><img src="./recursos/behance.png" alt="Behance"></a>
                 </div>
             </div>
-        </section>
-    </main>
-    
-    <footer>
-        <button id="ver-mas" class="eye-button">👁 Ver más</button>
-    </footer>
+
+        </div>
+    </section>
+</main>
+
+
+</footer>
     
     <script src="./menu.js"></script>
 </body>
