@@ -6,6 +6,7 @@
     --color-freddo-arena: rgb(200, 192, 164);
     --font-lulobold: 'lulobold', sans-serif;
     --font-raleway: 'Raleway', sans-serif;
+    --color-ojo-iris: rgb(136, 185, 205); 
 }
 
 /* Base y Reset */
@@ -267,8 +268,116 @@ footer {
                 url('./recursos/myairbridge-BCTRZmbL9RO/rasgadura-2.png') right center no-repeat;
     background-size: auto 100%;
     background-position: left top, right top;
-    text-align: center;
-    padding: 50px;
+    text-align: none;
+    padding: 0px;
     background-color: var(--color-freddo-naranja); /* Usando variable */
     margin: 0;
+}
+
+------------------------------------------------
+/* Asegurar que el footer centre su contenido */
+footer {
+    position: relative;
+    /* ... tus estilos previos de rasgaduras, fondo naranja, padding, etc. ... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 0; /* Espacio vertical */
+    background-color: var(--color-freddo-naranja);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; /* Espacio entre ojo y botón */  
+    z-index: 2; /* Por encima de las rasgaduras */
+}
+
+/* --- ESTILOS DEL OJO REALISTA --- */
+
+.eye-container {
+    position: relative;
+    width: 6rem; /* Tamaño total del ojo */
+    height: 6rem;
+}
+
+.eyeball {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 50%; /* Forma esférica */
+    position: relative;
+    overflow: hidden; /* Importante: mantiene el iris dentro */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Borde sutil */
+    
+    /* **CORREGIDO: SOMBRA HACIA LA DERECHA** */
+    /* Desplazamiento X de 8px, Y de 12px, difuminado de 20px, color negro semitransparente */
+    box-shadow: 8px 12px 20px rgba(0, 0, 0, 0.3); 
+}
+
+/* Iris (azul claro) */
+.iris {
+    width: 4rem; /* Tamaño del iris */
+    height: 4rem;
+    background-color: var(--color-ojo-iris);
+    border-radius: 50%;
+    position: absolute;
+    
+    /* Centrar inicialmente el iris */
+    top: 50%;
+    left: 50%;
+    /* Usaremos transform para moverla, así que la centramos primero */
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* AÑADIDO: Sombra interna base para simular profundidad */
+    /* La sombra se moverá con JS, este es el estado inicial (centrado) */
+    box-shadow: 
+        /* Sombra externa (general) que ya tienes */
+        0 0 0 0 rgba(0, 0, 0, 0), /* Sombra externa, sin desplazamiento por defecto */
+        /* Sombra interna sutil que moveremos */
+        inset 0 0 1rem rgba(0, 0, 0, 0.4);
+}
+
+/* Pupila (negra) */
+.pupil {
+    width: 2.5rem; /* Tamaño de la pupila */
+    height: 2.5rem;
+    background-color: #000; /* Color negro profundo */
+    border-radius: 50%;
+    position: relative; /* Para posicionar los destellos internos */
+}
+
+/* --- LOS DOS DESTELLOS DE LUZ (Pseudo-elementos) --- */
+
+/* Destello principal (más grande, superior izquierdo) */
+.pupil::before {
+    content: "";
+    position: absolute;
+    width: 0.8rem; /* Tamaño */
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 50%;
+    
+    /* **CORREGIDO: POSICIÓN TRANSVERSAL SUPERIOR** */
+    top: 20%;
+    left: 20%;
+}
+
+/* Destello secundario (más pequeño, inferior derecho) */
+.pupil::after {
+    content: "";
+    position: absolute;
+    width: 0.5rem; /* Tamaño más pequeño */
+    height: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8); /* Un poco más transparente */
+    border-radius: 50%;
+    
+    /* **CORREGIDO: POSICIÓN TRANSVERSAL INFERIOR** */
+    bottom: 20%;
+    right: 20%;
 }
